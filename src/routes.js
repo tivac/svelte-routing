@@ -11,6 +11,7 @@ page("*", (ctx, next) => {
     return next();
 });
 
+// This page has no children, so isn't a wildcard
 page("/", ({ components }, next) => {
     components.push({
         component : home,
@@ -22,6 +23,7 @@ page("/", ({ components }, next) => {
 
 import one from "./pages/one.html";
 
+// Has children, wildcard!
 page("/one*", ({ components }, next) => {
     components.push({
         component : one,
@@ -35,7 +37,7 @@ page("/one*", ({ components }, next) => {
 
 import subone from "./pages/one/subone.html";
 
-page("/one/subone*", ({ components }, next) => {
+page("/one/subone", ({ components }, next) => {
     components.push({
         component : subone,
         data      : {},
@@ -46,7 +48,7 @@ page("/one/subone*", ({ components }, next) => {
 
 import subtwo from "./pages/one/subtwo.html";
 
-page("/one/subtwo*", ({ components }, next) => {
+page("/one/subtwo", ({ components }, next) => {
     components.push({
         component : subtwo,
         data      : {},
@@ -69,8 +71,6 @@ page("*", ({ components }) => {
 
         return prev.page.props;
     }, props);
-
-    console.log(props);
     
     app.set(props);
 });
