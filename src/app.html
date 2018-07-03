@@ -1,1 +1,5 @@
 <h1>APP</h1>
+
+{#if page}
+<svelte:component this={page} {...page.data} />
+{/if}
