@@ -1,5 +1,7 @@
 <h1>APP</h1>
 
+<a href="/">Home</a> | <a href="/one">One</a>
+
 {#if page}
-<svelte:component this={page} {...page.data} />
+<svelte:component this={page.child} {...page.props} />
 {/if}

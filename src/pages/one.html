@@ -1,3 +1,11 @@
-<h1>One</h1>
+<h2>One</h2>
 
-<a href="/">Go to /</a>
+<a href="/one/subone">Sub One</a> | <a href="/one/subtwo">Sub Two</a>
+
+<p>
+    foo: {foo}
+</p>
+
+{#if page}
+<svelte:component this={page.child} {...page.props} />
+{/if}
