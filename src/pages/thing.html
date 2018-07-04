@@ -1,6 +1,6 @@
-<h1>APP</h1>
+<h3>Thing {thing}!</h3>
 
-<a href="/">Home</a> | <a href="/things">Things</a>
+<a href="/things/{thing}/subthing">Subthing</a>
 
 {#if page}
 <svelte:component this={page.child} {...page.props} />
