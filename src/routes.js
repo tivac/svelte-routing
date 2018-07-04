@@ -39,12 +39,14 @@ page("*", ({ components }) => {
     components.reduce((prev, { component, data = {} }) => {
         prev.page = {
             child : component,
-            props : data,
+            // Setting page to null is important to avoid stale state
+            // bugs when moving up & down the tree
+            props : Object.assign(data, { page : null }),
         };
 
         return prev.page.props;
     }, props);
-    
+
     app.set(props);
 });
 
