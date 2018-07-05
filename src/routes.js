@@ -3,6 +3,7 @@ import page from "page";
 import app from "./app.js";
 
 import home from "./pages/home.html";
+import other from "./pages/other.html";
 import things from "./pages/things.html";
 import thing from "./pages/thing.html";
 import subthing from "./pages/subthing.html";
@@ -26,6 +27,7 @@ page("*", (ctx, next) => {
 
 // This page has no children, so isn't a wildcard
 page("/", handler(home));
+page("/other", handler(other));
 page("/things", handler(things, { foo : "This is a foo value" }));
 page("/things/:thing/*", handler(thing));
 page("/things/:thing/subthing/", handler(subthing));
@@ -48,7 +50,12 @@ page("*", ({ components }) => {
     }, props);
 
     app.set(props);
+
+    console.log("state", app.get());
 });
+
+// Enforce exact matches only
+page.strict(true);
 
 // Start routing
 page.start({ hashbang : true });

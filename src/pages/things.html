@@ -3,10 +3,16 @@
 <a href="/things/thing-1/">Thing 1</a> |
 <a href="/things/thing-2/">Thing 2</a>
 
+<p>foo: {foo}</p>
+
 <script>
 export default {
     oncreate() {
         console.log("things.oncreate", this.get());
+    },
+
+    ondestroy() {
+        console.log("things.ondestroy", this.get());
     },
 };
 </script>

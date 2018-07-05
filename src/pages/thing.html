@@ -1,6 +1,6 @@
 <h3>Thing {thing}!</h3>
 
-<a href="/things/{thing}/subthing">Subthing</a>
+<a href="/things/{thing}">Thing</a> | <a href="/things/{thing}/subthing">Subthing</a>
 
 {#if page}
 <svelte:component this={page.child} {...page.props} />
@@ -10,6 +10,10 @@
 export default {
     oncreate() {
         console.log("thing.oncreate", this.get());
+    },
+    
+    ondestroy() {
+        console.log("thing.ondestroy");
     },
 };
 </script>
